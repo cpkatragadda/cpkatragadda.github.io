@@ -1,253 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chandra Katragadda – Senior DevOps & Cloud Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandra Katragadda – Senior DevOps & Cloud Engineer</title>
 
-<!-- Font Awesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-<style>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #05091a, #0b1f3b, #122b5c);
+      --accent: #4fd1ff;
+      --accent-soft: rgba(79, 209, 255, 0.35);
+      --card-bg: rgba(10, 18, 40, 0.72);
+      --border-soft: rgba(255, 255, 255, 0.12);
+      --text-main: #f7f9ff;
+      --text-muted: #a9b3d1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-        margin: 0;
-        font-family: "Inter", "Segoe UI", Roboto, sans-serif;
-        background: #f3f6fb;
-        color: #222;
-        line-height: 1.6;
-        scroll-behavior: smooth;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1b2a4a 0, #050814 55%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    /* HERO SECTION */
-    header {
-        background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
-        color: white;
-        padding: 80px 20px;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: var(--bg-gradient);
+      padding: 80px 20px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(60px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, #4fd1ff 0, transparent 60%);
+      top: -80px;
+      left: -40px;
+    }
+
+    .hero::after {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, #9f7aea 0, transparent 60%);
+      bottom: -120px;
+      right: -40px;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
         text-align: center;
-        animation: fadeIn 1.2s ease-in-out;
+      }
     }
 
-    header h1 {
-        margin: 0;
-        font-size: 48px;
-        font-weight: 800;
+    .hero-text h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
     }
 
-    header p {
-        font-size: 20px;
-        opacity: 0.95;
+    .hero-text h2 {
+      margin: 0 0 18px;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--accent);
     }
 
-    .social-links a {
-        color: white;
-        margin: 0 12px;
-        font-size: 22px;
-        transition: 0.3s;
+    .hero-text p {
+      margin: 0 0 20px;
+      color: var(--text-muted);
+      max-width: 520px;
     }
 
-    .social-links a:hover {
-        opacity: 0.7;
-        transform: scale(1.1);
+    @media (max-width: 900px) {
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
-    /* CONTAINER */
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 20px;
-        animation: fadeInUp 1.2s ease;
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
     }
 
-    /* SECTION HEADERS */
-    h2 {
-        border-left: 6px solid #0052d4;
-        padding-left: 12px;
-        margin-top: 50px;
-        font-size: 30px;
-        color: #003c9d;
-        animation: fadeInUp 1s ease;
+    @media (max-width: 900px) {
+      .hero-links {
+        justify-content: center;
+      }
     }
 
-    /* CARDS */
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(5, 12, 35, 0.7);
+      color: var(--text-main);
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .hero-links a i {
+      color: var(--accent);
+    }
+
+    .hero-links a:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(79, 209, 255, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* PHOTO GLASS CARD */
+
+    .hero-photo-card {
+      position: relative;
+      justify-self: center;
+    }
+
+    .glass {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.6));
+      border-radius: 24px;
+      padding: 18px 18px 22px;
+      border: 1px solid var(--border-soft);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      text-align: center;
+      max-width: 280px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      margin-bottom: 14px;
+    }
+
+    .hero-photo-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .hero-photo-role {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-photo-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      border: 1px solid rgba(79, 209, 255, 0.35);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* MAIN CONTENT */
+
+    .main {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 40px 0 10px;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .section-title span.icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+      color: var(--accent);
+    }
+
+    .section-subtitle {
+      margin: 0 0 18px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
     .card {
-        background: white;
-        padding: 25px;
-        margin: 20px 0;
-        border-radius: 14px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-        transition: 0.3s;
-        animation: fadeInUp 1s ease;
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 22px 22px 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      margin-bottom: 18px;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     }
 
     .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+      border-color: rgba(79, 209, 255, 0.6);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(79, 209, 255, 0.3);
     }
 
-    /* GRID */
     .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
-    /* ICON HEADERS */
     .icon-title {
-        font-size: 22px;
-        margin-bottom: 10px;
-        color: #003c9d;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .icon-title i {
-        margin-right: 8px;
-        color: #0052d4;
+      color: var(--accent);
     }
 
-    /* FOOTER */
+    .card p,
+    .card li {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 17px;
+      color: var(--text-main);
+    }
+
+    .card h4 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+
     .footer {
-        text-align: center;
-        padding: 30px;
-        margin-top: 40px;
-        background: #e9eef6;
-        color: #555;
-        animation: fadeIn 1.5s ease;
+      text-align: center;
+      padding: 24px 16px 30px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at top, rgba(79, 209, 255, 0.08), transparent 55%);
     }
-
-    /* ANIMATIONS */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-</style>
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Chandra Katragadda</h1>
-    <p>Senior DevOps & Cloud Engineer • Kubernetes • AWS • Terraform • CI/CD</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Chandra Katragadda</h1>
+        <h2>Senior DevOps &amp; Cloud Engineer</h2>
+        <p>
+          Architecting scalable cloud-native platforms, Kubernetes-based infrastructure, and automated CI/CD pipelines.
+          Delivering cost-efficient, resilient systems with a focus on Kubernetes Operators, AWS, and Terraform.
+        </p>
 
-    <div class="social-links">
-        <a href="mailto:cpkatragadda@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/chandrakatragadda"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/cpkatragadda"><i class="fa-brands fa-github"></i></a>
+        <div class="hero-links">
+          <a href="mailto:cpkatragadda@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+          </a>
+          <a href="https://linkedin.com/in/chandrakatragadda" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/cpkatragadda" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-photo-card">
+        <div class="glass">
+          <img src="profile.jpg" alt="Chandra Katragadda" class="hero-photo" />
+          <div class="hero-photo-name">Chandra Katragadda</div>
+          <div class="hero-photo-role">DevOps &amp; Cloud Engineer</div>
+        </div>
+        <div class="hero-photo-glow"></div>
+      </div>
     </div>
-</header>
+  </section>
 
-<div class="container">
+  <!-- MAIN CONTENT -->
+  <main class="main">
 
     <!-- SUMMARY -->
-    <h2><i class="fa-solid fa-user-tie"></i> Professional Summary</h2>
+    <div class="section-title">
+      <span class="icon"><i class="fa-solid fa-user-tie"></i></span>
+      <span>Professional Summary</span>
+    </div>
+    <p class="section-subtitle">
+      Snapshot of experience, impact, and focus areas.
+    </p>
     <div class="card">
-        <p>
-        Senior DevOps & Cloud Engineer with 9+ years of experience architecting scalable infrastructure, automating CI/CD pipelines, and driving cloud-native transformations. Delivered $5M+ annual savings through platform migrations, built production-grade Kubernetes Operators, and established enterprise DevOps standards. Certified in CKAD, AWS Solutions Architect, and Terraform.
-        </p>
+      <p>
+        Senior DevOps &amp; Cloud Engineer with 9+ years of experience architecting scalable infrastructure,
+        automating CI/CD pipelines, and driving cloud-native transformations in Agile environments.
+        Proven track record of delivering $5M+ in annual cost savings through strategic platform migrations,
+        building production-grade Kubernetes Operators, and establishing enterprise-wide DevOps standards.
+        Holds certifications including CKAD, AWS Solutions Architect, and Terraform Associate.
+      </p>
     </div>
 
     <!-- SKILLS -->
-    <h2><i class="fa-solid fa-laptop-code"></i> Technical Skills</h2>
+    <div class="section-title">
+      <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
+      <span>Technical Skills</span>
+    </div>
+    <p class="section-subtitle">
+      Core technologies and platforms used to design, build, and operate cloud-native systems.
+    </p>
+
     <div class="skills-grid">
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-code"></i> Languages</div>
+        <p>Python, Golang, TypeScript, Java, Groovy, Bash/Shell, PowerShell</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-solid fa-code"></i> Languages</div>
-            Python, Golang, TypeScript, Java, Groovy, Bash, PowerShell
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-cloud"></i> Cloud Platforms</div>
+        <p>AWS (EC2, EKS, ECS, Lambda, S3, RDS, CloudFormation, API Gateway, SageMaker), Azure</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-solid fa-cloud"></i> Cloud Platforms</div>
-            AWS (EC2, EKS, ECS, Lambda, S3, RDS, API Gateway, SageMaker), Azure
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-brands fa-docker"></i> Containers &amp; Orchestration</div>
+        <p>Kubernetes, Helm, Docker, ECS, EKS, Istio, ArgoCD</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-brands fa-docker"></i> Containers & Orchestration</div>
-            Kubernetes, Helm, Docker, ECS, Istio, ArgoCD
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-diagram-project"></i> Infrastructure as Code</div>
+        <p>Terraform, CloudFormation, Chef, Ansible, Packer</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-solid fa-diagram-project"></i> Infrastructure as Code</div>
-            Terraform, CloudFormation, Chef, Ansible, Packer
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-gears"></i> CI/CD &amp; DevOps</div>
+        <p>Jenkins, GitHub Actions, Azure DevOps, XL Deploy/Release, Liquibase</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-solid fa-gears"></i> CI/CD & DevOps</div>
-            Jenkins, GitHub Actions, Azure DevOps, XL Deploy/Release, Liquibase
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-chart-line"></i> Monitoring &amp; Observability</div>
+        <p>Prometheus, Grafana, Splunk, ELK Stack, AppDynamics, Dynatrace, SignalFx, AWS OpenSearch</p>
+      </div>
 
-        <div class="card">
-            <div class="icon-title"><i class="fa-solid fa-chart-line"></i> Monitoring</div>
-            Prometheus, Grafana, Splunk, ELK, AppDynamics, Dynatrace, SignalFx
-        </div>
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-shield-halved"></i> DevSecOps</div>
+        <p>SonarQube, Veracode, Twistlock, Git Guardian</p>
+      </div>
 
+      <div class="card">
+        <div class="icon-title"><i class="fa-solid fa-database"></i> Databases</div>
+        <p>PostgreSQL, MS SQL, Oracle, Amazon Aurora, DynamoDB, Snowflake</p>
+      </div>
     </div>
 
     <!-- EXPERIENCE -->
-    <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+    <div class="section-title">
+      <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
+      <span>Professional Experience</span>
+    </div>
+    <p class="section-subtitle">
+      Roles, responsibilities, and impact across recent positions.
+    </p>
 
     <div class="card">
-        <h3>Sr. DevOps Engineer — Corebridge Financial (2022–Present)</h3>
-        <ul>
-            <li>Led PCF → ECS/EKS migration saving $5M annually.</li>
-            <li>Built Kubernetes Operators using Kubebuilder & controller-runtime.</li>
-            <li>Architected enterprise AMI & Container Image Factory.</li>
-            <li>Implemented Istio & VPC Lattice Gateway API.</li>
-            <li>Migrated CI/CD from Jenkins → GitHub Actions.</li>
-            <li>Developed Terraform modules for AWS & Azure.</li>
-            <li>Built MLOps pipelines using SageMaker, Kubernetes & Airflow.</li>
-            <li>Integrated Prometheus/Grafana for ML monitoring.</li>
-            <li>Migrated Apigee → API Gateway saving $500K annually.</li>
-        </ul>
+      <h3>Sr. DevOps Engineer &mdash; Corebridge Financial</h3>
+      <h4>Raleigh, NC &bull; September 2022 &ndash; Present</h4>
+      <ul>
+        <li>Led PCF-to-ECS/EKS migration across the organization, eliminating proprietary platform dependencies and saving $5M annually in licensing costs.</li>
+        <li>Designed and built production-grade Kubernetes Operators using Kubebuilder and controller-runtime, implementing robust CRDs and reconciliation loops for fully automated lifecycle management.</li>
+        <li>Architected and maintained an enterprise Container Image and AMI Factory using Docker and Packer, delivering hardened base images across the organization.</li>
+        <li>Implemented Istio and VPC Lattice Gateway API solutions for ECS/EKS platforms, enabling secure and scalable traffic routing for microservices.</li>
+        <li>Led migration of CI/CD pipelines from Jenkins to GitHub Actions, improving developer productivity through faster build times and GitHub integration.</li>
+        <li>Authored reusable Terraform modules for AWS and Azure services (EKS, ECS, EC2), establishing IaC best practices and managing version upgrades.</li>
+        <li>Deployed ML models into production using AWS SageMaker and Kubernetes, building MLOps pipelines with Apache Airflow for automated training and validation.</li>
+        <li>Integrated Prometheus and Grafana monitoring for ML models, detecting data drift and model degradation and reducing production downtime by 25%.</li>
+        <li>Migrated API proxies from Apigee to AWS API Gateway, cutting $500K in annual licensing and runtime costs.</li>
+        <li>Implemented DR strategies for ECS, EKS, and EC2 workloads using AWS CloudEndure and AWS Backup, meeting defined RTO/RPO targets.</li>
+      </ul>
     </div>
 
     <div class="card">
-        <h3>Cloud Engineer — AIG (2018–2022)</h3>
-        <ul>
-            <li>Executed cloud migrations contributing to $15M savings.</li>
-            <li>Standardized Terraform modules across AWS & Azure.</li>
-            <li>Built unified CI/CD framework using Jenkins shared libraries.</li>
-            <li>Modernized monoliths into microservices on EKS & Lambda.</li>
-            <li>Developed serverless APIs using Lambda & API Gateway.</li>
-        </ul>
+      <h3>Cloud Engineer &mdash; AIG</h3>
+      <h4>Charlotte, NC &bull; April 2018 &ndash; September 2022</h4>
+      <ul>
+        <li>Executed large-scale cloud migrations aligned with data center exit strategy, contributing to $15M in projected infrastructure savings.</li>
+        <li>Developed and standardized Terraform modules for AWS and Azure services, leading the upgrade to Terraform v1.0.</li>
+        <li>Built a unified CI/CD pipeline framework using Jenkins Groovy shared libraries, reducing pipeline maintenance overhead.</li>
+        <li>Modernized monolithic applications into microservices hosted on EKS and Lambda, leveraging auto-scaling and pay-per-use models to reduce TCO.</li>
+        <li>Designed serverless API endpoints using Lambda, API Gateway, and the Serverless Framework.</li>
+        <li>Implemented Hub-and-Spoke cloud architecture with VPC peering, improving network segmentation and centralized traffic management.</li>
+        <li>Configured data pipeline deployments for AWS Managed Airflow, Glue, and Snowflake to support analytics workloads.</li>
+      </ul>
     </div>
 
     <div class="card">
-        <h3>DevOps Engineer — Brillius (2016–2018)</h3>
-        <ul>
-            <li>Developed CI/CD pipelines using Jenkins, SonarQube, XL Deploy.</li>
-            <li>Authored Chef cookbooks with ChefSpec, InSpec & Test Kitchen.</li>
-            <li>Provisioned AWS/Azure infra using Terraform.</li>
-            <li>Automated AMI builds using Packer & Chef.</li>
-        </ul>
+      <h3>DevOps Engineer &mdash; Brillius</h3>
+      <h4>Jersey City, NJ &bull; August 2016 &ndash; April 2018</h4>
+      <ul>
+        <li>Developed CI/CD pipelines using Jenkins, SonarQube, Artifactory, XL Deploy, and XL Release.</li>
+        <li>Authored and tested Chef cookbooks with ChefSpec, InSpec, and Test Kitchen; implemented CI/CD for cookbook delivery via Chef Automate.</li>
+        <li>Provisioned AWS and Azure infrastructure using Terraform for EC2, S3, VPC, RDS, Lambda, ECS, and Fargate.</li>
+        <li>Automated AMI builds using Packer, Chef, and Jenkins, ensuring consistent and hardened images.</li>
+        <li>Developed PowerShell and Bash automation scripts for server administration, reducing manual operational overhead.</li>
+      </ul>
     </div>
 
     <!-- CERTIFICATIONS -->
-    <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+    <div class="section-title">
+      <span class="icon"><i class="fa-solid fa-certificate"></i></span>
+      <span>Certifications</span>
+    </div>
     <div class="card">
-        <ul>
-            <li>AWS Solutions Architect – Associate</li>
-            <li>AWS Developer – Associate</li>
-            <li>Terraform Associate</li>
-            <li>CKAD</li>
-            <li>Chef Cookbook Development</li>
-        </ul>
+      <ul>
+        <li>AWS Certified Solutions Architect &ndash; Associate</li>
+        <li>AWS Certified Developer &ndash; Associate</li>
+        <li>HashiCorp Certified: Terraform Associate</li>
+        <li>Certified Kubernetes Application Developer (CKAD)</li>
+        <li>Chef Local Cookbook Development</li>
+      </ul>
     </div>
 
     <!-- EDUCATION -->
-    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+    <div class="section-title">
+      <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      <span>Education</span>
+    </div>
     <div class="card">
-        <p><strong>Master of Science in Computer Science</strong> — Youngstown State University</p>
-        <p><strong>B.Tech in Electronics & Communication Engineering</strong> — JNTUK</p>
+      <p><strong>Master of Science in Computer Science</strong> &mdash; Youngstown State University, Youngstown, OH</p>
+      <p><strong>Bachelor of Technology in Electronics and Communication Engineering</strong> &mdash; Jawaharlal Nehru Technological University</p>
     </div>
 
-</div>
+  </main>
 
-<div class="footer">
-    © 2026 Chandra Katragadda — Built with ❤️ using GitHub Pages
-</div>
+  <footer class="footer">
+    © 2026 Chandra Katragadda &mdash; Deployed on GitHub Pages
+  </footer>
 
 </body>
 </html>
